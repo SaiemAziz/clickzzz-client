@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App" data-theme={theme ? 'luxury' : 'winter'}>
-      <div className='max-w-7xl flex flex-col justify-between min-h-screen mx-auto'>
+      <div className='max-w-7xl flex flex-col  min-h-screen mx-auto'>
         <Header/>
         <Outlet/>
 

@@ -4,48 +4,42 @@ import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCube, Pagination } from "swiper";
+import img1 from "../../images/beach.jpg";
+import img2 from "../../images/flower.jpg";
+import img3 from "../../images/ship.jpg";
+import img4 from "../../images/fire.jpg";
 
 const Banner = () => {
-
-    const pagination = {
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (index + 1) + "</span>";
-        }}
-
   return (
-    <div>
-      <>
-        <Swiper
-          effect={"cube"}
-          grabCursor={true}
-          loop={true}
-          
-          cubeEffect={{
-            shadow: true,
-            slideShadows: true,
-            shadowOffset: 20,
-            shadowScale: 0.94,
-          }}
-          pagination={pagination}
-          modules={[EffectCube, Pagination]}
-          className="mySwiper w-1/3"
-        >
-          <SwiperSlide>
-            <img className="w-full" alt="" src="https://swiperjs.com/demos/images/nature-1.jpg" />
-            <p className="h-10"></p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full" alt="" src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full" alt="" src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img className="w-full" alt="" src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </SwiperSlide>
-        </Swiper>
-      </>
+    <div className="bg-[#232426] relative bottom-32 text-white text-xl italic font-bold">
+      <Swiper
+        effect={"cube"}
+        grabCursor={true}
+        loop={true}
+        cubeEffect={{
+          shadow: true,
+          slideShadows: true,
+          shadowOffset: 20,
+        }}
+        pagination={{
+          type: "fraction",
+        }}
+        modules={[EffectCube, Pagination]}
+        className="mySwiper relative top-40 w-1/2 "
+      >
+        <SwiperSlide>
+          <img className="w-full" alt="" src={img4} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full" alt="" src={img2} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full" alt="" src={img1} />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full" alt="" src={img3} />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import logo from "../images/logo.jpg";
 const Header = () => {
   return (
-    <div>
-      <div className="navbar text-white bg-slate-900 p-3">
+    <div className="sticky top-0 z-50">
+      <div className="navbar text-white bg-[#232426] p-3">
         <div className="navbar-start">
           {/* drop down  */}
           <div className="dropdown">
@@ -31,8 +31,8 @@ const Header = () => {
           </div>
 
           {/* left overs  */}
-          <NavLink to="/" className="btn btn-ghost normal-case text-xl">
-            daisyUI
+          <NavLink to="/" className="h-14 normal-case text-xl">
+            <img className="h-full rounded-xl" src={logo} alt="" />
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">

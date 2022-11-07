@@ -12,10 +12,12 @@ export const routes = createBrowserRouter([
         children: [
             {
                 index: true,
+                loader: () => fetch("http://localhost:5000/services?limit=3"),
                 element: <Home/>
             },
             {
                 path: '/home',
+                loader: () => fetch("http://localhost:5000/services?limit=3"),
                 element: <Home/>
             },
         ]
