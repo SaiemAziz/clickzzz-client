@@ -11,7 +11,7 @@ import img4 from "../../images/fire.jpg";
 
 const Banner = () => {
   return (
-    <div className="bg-[#232426] relative bottom-32 text-white text-xl italic font-bold">
+    <div className="bg-[#232426] relative bottom-32 text-white text-xl italic rounded-b-[300px] font-bold">
       <Swiper
         effect={"cube"}
         grabCursor={true}
