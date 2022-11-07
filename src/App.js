@@ -7,8 +7,10 @@ function App() {
   let [theme, setTheme] = useState(true)
 
   return (
-    <div className="App min-h-screen" data-theme={theme ? 'luxury' : 'pastel'}>
-      
+    <div className="App" data-theme={theme ? 'luxury' : 'pastel'}>
+      <div className='max-w-7xl flex flex-col justify-between min-h-screen'>
+
+      </div>
     </div>
   );
 }
