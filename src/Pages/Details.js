@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/Auth';
 import { useTitle } from '../routes/useTitle';
+import ReviewCards from './components/ReviewCards';
 
 const Details = () => {
 
@@ -31,14 +32,16 @@ const Details = () => {
         e.preventDefault()
         let time = new Date().getTime()
         let review = {
-            text: e.target.review.value,
+            img: user.photoURL,
+            details: e.target.review.value,
             email: user.email,
             displayName : user.displayName,
             service_id: data._id,
             time: time,
         }
         e.target.reset()
-        reviews.push(review)
+        setCheck(false)
+        setReviews([review,...reviews])
         fetch(`http://localhost:5000/service-reviews`, {
             method : 'POST',
             headers: {
@@ -47,7 +50,7 @@ const Details = () => {
             body : JSON.stringify(review)
         })
         .then(res => res.json())
-        .then(data => console.log(data.status))
+        .then(data => console.log(data.data))
     }
 
     // toggle disabled
@@ -83,15 +86,13 @@ const Details = () => {
         </div>
         {
             user && 
-            <form onSubmit={reviewForm} className='flex items-center justify-center mx-auto'>
+            <form onSubmit={reviewForm} className='flex items-center justify-center mx-auto my-10'>
                 <img src={user?.photoURL} className="w-[60px] h-[60px] rounded-full mr-5" alt="" />
-                <textarea name="review" className='textarea textarea-primary w-1/2' placeholder='Type minimum 20 characters' onChange={checkReview}/>
+                <textarea name="review" className='h-[140px] textarea textarea-primary w-1/2' placeholder='Type minimum 20 characters' onChange={checkReview}/>
                 <input className={`btn ml-5 btn-info`} type="submit" value="Submit Review" disabled={!check} />
             </form>
         }
-        <div className='grid grid-cols-3 gap-5 p-5'>
-
-        </div>
+        <ReviewCards reviews={reviews} />
         </div>
     );
 };
