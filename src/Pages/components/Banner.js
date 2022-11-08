@@ -1,9 +1,10 @@
 import React from "react";
 import "swiper/css";
 import "swiper/css/effect-cube";
+import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCube, Pagination } from "swiper";
+import { EffectCube, Pagination, EffectCoverflow } from "swiper";
 import img1 from "../../images/beach.jpg";
 import img2 from "../../images/flower.jpg";
 import img3 from "../../images/ship.jpg";
@@ -11,22 +12,31 @@ import img4 from "../../images/fire.jpg";
 
 const Banner = () => {
   return (
-    <div className="bg-[#232426] relative bottom-32 text-white text-xl italic rounded-b-[300px] font-bold">
+    <div className="bg-[#232426] relative bottom-32 text-white text-xl italic font-bold">
       <Swiper
-        effect={"cube"}
+        effect={"coverflow"}
         grabCursor={true}
         loop={true}
-        cubeEffect={{
-          shadow: true,
+        centeredSlides={true}
+        slidesPerView={"2"}
+        // cubeEffect={{
+        //   shadow: true,
+        //   slideShadows: true,
+        //   shadowOffset: 20,
+        // }}
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
           slideShadows: true,
-          shadowOffset: 20,
         }}
         pagination={{
           type: "fraction",
         }}
-        modules={[EffectCube, Pagination]}
-        className="mySwiper relative top-40 w-1/2 "
-      >
+        modules={[EffectCoverflow]}
+        className="mySwiper relative top-40 w-full tooltip tooltip-warning"
+       data-tip="Swipe Me">
         <SwiperSlide>
           <img className="w-full" alt="" src={img4} />
         </SwiperSlide>

@@ -1,7 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.jpg";
 const Header = () => {
+
+  let menu = <>
+    <div className="text-white text-left my-2 px-4 bg-[#232426]"><NavLink to='/services'>Services</NavLink></div>
+    <div className="text-white text-left my-2 px-4 bg-[#232426]"><NavLink to='/blogs'>Blogs</NavLink></div>
+  </>
+
   return (
     <div className="sticky top-0 z-50">
       <div className="navbar text-white bg-[#232426] p-3">
@@ -26,8 +32,8 @@ const Header = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-            ></ul>
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow text-white bg-[#232426] rounded-box w-52"
+            >{menu}</ul>
           </div>
 
           {/* left overs  */}

@@ -3,6 +3,8 @@ import App from "../App"
 import ErrorPage from "../Pages/ErrorPage"
 import Auth from '../context/Auth'
 import Home from "../Pages/Home"
+import Services from "../Pages/Services"
+import Blogs from "../Pages/Blogs"
 
 export const routes = createBrowserRouter([
     {
@@ -19,6 +21,15 @@ export const routes = createBrowserRouter([
                 path: '/home',
                 loader: () => fetch("http://localhost:5000/services?limit=3"),
                 element: <Home/>
+            },
+            {
+                path: '/services',
+                loader: () => fetch("http://localhost:5000/services"),
+                element: <Services/>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs/>
             },
         ]
     }

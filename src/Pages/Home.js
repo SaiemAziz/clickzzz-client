@@ -8,24 +8,20 @@ const Home = () => {
     useTitle('Home')
 
     let returnedData = useLoaderData()
-    console.log(returnedData)
+    
     let services = returnedData.data;
 
     return (
         <div>
             <Banner/>
-            <div className='grid grid-cols-2  mt-32  mb-10 pb-10 border-b-4'>
-                <div className='w-fit mx-auto text-amber-600'>
-                <h1 className='text-xl text-left'>Welcome to</h1>
-                    <h1 className='text-5xl italic my-5 font-bold text-warning-content'>CLICKZZZ</h1>
-                    <h1 className='text-xl text-right'>Official Website</h1>
-                </div>
-                <div>
-                    <img className='h-full rounded-2xl' src={logo} alt="" />
-                </div>
+            <div className='w-fit mx-auto mt-10 pb-10  p-5 text-amber-600'>
+                <h1 className='text-3xl text-left'>Welcome to</h1>
+                    <h1 className='text-7xl italic my-5 font-bold text-warning-content'>CLICKZZZ</h1>
+                    <h1 className='text-3xl text-right'>Official Website</h1>
+               
             </div>
-            <h1 className='text-4xl mb-10 font-medium'>Our Services</h1>
-            <div className='grid grid-cols-3 gap-5 mb-10'>
+            <h1 className='text-4xl mb-10 font-medium border-t-4 pt-10'>Our Services</h1>
+            <div className='grid grid-cols-3 gap-5 mb-10 p-5'>
             {
                 services.map(s => <Service 
                     key={s._id}
