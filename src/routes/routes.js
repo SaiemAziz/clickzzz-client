@@ -9,6 +9,7 @@ import Details from "../Pages/Details"
 import AddService from "../Pages/AddService"
 import Register from "../Pages/Register"
 import LogIn from "../Pages/LogIn"
+import Private from "../context/Private"
 
 export const routes = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/add-service',
-                element: <AddService/>
+                element: <Private><AddService/></Private>
             },
             {
                 path: '/register',

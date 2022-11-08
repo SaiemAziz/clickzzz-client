@@ -2,21 +2,24 @@ import React, { useContext } from "react";
 import { AuthContext } from "../context/Auth";
 import { toast } from "react-toastify";
 import { BsGoogle, BsGithub} from 'react-icons/bs'
-import { Navigate, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { jwtFetch } from "../routes/jwtFetch";
 const SocialLogin = () => {
-  let { setUser, setLoading, googleLogin, githubLogin, redirect, user } =
+  let { setUser, setLoading, googleLogin, githubLogin, redirect,setRedirect, user } =
     useContext(AuthContext);
     let navigate = useNavigate()
+    // let location = useLocation()
     let from = redirect || '/'
+
 
   let gglLoginClicked = () => {
     googleLogin()
       .then((res) => {
         setUser(res.user);
         toast.success("Successfully logged in");
-        navigate(from, {replace: true})
+        
         jwtFetch(res.user.email)
+        console.log(from);
       })
       .catch((err) =>
         toast.error(
@@ -31,7 +34,7 @@ const SocialLogin = () => {
       .then((res) => {
         setUser(res.user);
         toast.success("Successfully logged in");
-        navigate(from, {replace: true})
+        
         jwtFetch(res.user.email)
       })
       .catch((err) =>

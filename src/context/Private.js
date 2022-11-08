@@ -23,7 +23,7 @@ const Private = ({ children }) => {
   // redirecting to log in page 
   else {    
     setRedirect(location.pathname);
-    return <Navigate to="/login" replace></Navigate>;
+    return <Navigate to="/login"  replace></Navigate>;
   }
 };
 

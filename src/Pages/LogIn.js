@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Auth";
 import SocialLogin from "../shared/SocialLogin";
@@ -8,11 +8,18 @@ import { jwtFetch } from "../routes/jwtFetch";
 
 const LogIn = () => {
   useTitle("Login");
-  let { user, setLoading, logIn, updateUser, setUser, redirect } =
+  let { user, setLoading, logIn, updateUser, setUser, redirect, setRedirect} =
     useContext(AuthContext);
   let [show, setShow] = useState(false);
   let navigate = useNavigate();
   let from = redirect || "/";
+  
+  useEffect(()=>{
+    if(user)
+    {
+        navigate(from, { replace: true });
+    }
+  },[user])
 
   let formChecked = (e) => {
     e.preventDefault();
@@ -23,14 +30,15 @@ const LogIn = () => {
       .then((res) => {
         setUser(res.user);
         toast.success("Login Successful");
+        
         jwtFetch(res.user.email);
-        navigate(from, { replace: true });
       })
       .catch((err) =>
         toast.error(
           err.code.toUpperCase().replace("AUTH/", "").replaceAll("-", " ")
         )
       );
+    
     setLoading(false);
     e.target.reset();
   };

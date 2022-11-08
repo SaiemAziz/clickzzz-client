@@ -1,7 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/Auth";
+import { jwtFetch } from "../routes/jwtFetch";
 import { useTitle } from "../routes/useTitle";
 import SocialLogin from "../shared/SocialLogin";
 
@@ -9,11 +10,18 @@ const Register = () => {
 
     useTitle("Register")
 
-  let { user, setLoading, createUser, updateUser, setUser, redirect } =
+  let { user, setLoading, createUser, updateUser, setUser, redirect, setRedirect } =
     useContext(AuthContext);
   let [show, setShow] = useState(false);
   let navigate = useNavigate();
   let from = redirect || "/";
+
+  useEffect(()=>{
+    if(user)
+    {
+        navigate(from, { replace: true });
+    }
+  },[user])
 
   let formChecked = (e) => {
     e.preventDefault();
@@ -33,7 +41,9 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         setUser(res.user);
+        jwtFetch(res.user.email)
         toast.success("Registration Successful");
+        
         updateUser({ displayName: name, photoURL: img })
           .then((res) => setUser(res.user))
           .catch((err) =>

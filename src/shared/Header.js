@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Auth";
 import logo from "../images/logo.jpg";
 import { toast } from "react-toastify";
 
 const Header = () => {
-  let {  logOut, setUser, setLoading, user } = useContext(AuthContext);
+  let {  logOut, setUser, setLoading, user, setRedirect } = useContext(AuthContext);
   let navigate = useNavigate();
+  let location = useLocation()
 
   let navStyle = "text-white text-left px-4 bg-[#232426] ";
 
@@ -52,6 +53,7 @@ const Header = () => {
     toast.success("Successfully Logged Out");
     navigate("/login");
     setLoading(false);
+    setRedirect(location.pathname)
     localStorage.removeItem("token")
   };
 

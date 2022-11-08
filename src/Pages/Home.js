@@ -9,7 +9,6 @@ const Home = () => {
     useTitle('Home')
 
     let {user} = useContext(AuthContext)
-    console.log(user)
     let returnedData = useLoaderData()
     
     let services = returnedData.data;
@@ -17,13 +16,13 @@ const Home = () => {
     return (
         <div>
             <Banner/>
-            <div className='w-fit mx-auto mt-10 pb-10  p-5 text-amber-600'>
+            <div className='w-fit mx-auto mt-5   p-5 text-amber-600'>
                 <h1 className='text-3xl text-left'>Welcome to</h1>
                     <h1 className='text-7xl italic my-5 font-bold text-warning-content'>CLICKZZZ</h1>
                     <h1 className='text-3xl text-right'>Official Website</h1>
                
             </div>
-            <h1 className='text-4xl mb-10 font-medium border-t-4 pt-10'>Our Services</h1>
+            <h1 className='text-4xl mb-5 font-medium border-t-4 pt-5'>Our Services</h1>
             <div className='grid grid-cols-3 gap-5 mb-10 p-5'>
             {
                 services.map(s => <Service 

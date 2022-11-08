@@ -16,7 +16,8 @@ const AddService = () => {
         fetch("http://localhost:5000/add-service",{
             method: 'POST',
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                authtoken: localStorage.getItem("token")
             },
             body: JSON.stringify(service)
         }).then(res=>res.json())
@@ -28,13 +29,13 @@ const AddService = () => {
             <h1 className='my-10 text-6xl'>Please Add A new Service</h1>
             <form onSubmit={formChecked} className="grid grid-cols-2 w-1/2 mx-auto text-left gap-5">
                 <h1 className='text-2xl'>Title: </h1>
-                <input required type="text" className="input input-primary" name='title'/>
+                <input placeholder='Service Name' required type="text" className="input input-primary" name='title'/>
                 <h1 className='text-2xl'>Image URL: </h1>
-                <input required type="text" className="input input-primary" name='img'/>
+                <input placeholder='Image Link' required type="text" className="input input-primary" name='img'/>
                 <h1 className='text-2xl'>Price: </h1>
-                <input required type="number" className="input input-primary" name='price'/>
+                <input placeholder='Cost in $' required type="number" className="input input-primary" name='price'/>
                 <h1 className='text-2xl'>Description: </h1>
-                <input required type="text" className="input input-primary" name='description'/>
+                <textarea placeholder='Detailed Description'  required type="text" className="textarea textarea-primary" name='description'/>
                 <input className='btn btn-outline btn-accent col-span-2 my-5' type="submit" value="Add"/>
             </form>
         </div>
