@@ -21,6 +21,7 @@ const AddService = () => {
             body: JSON.stringify(service)
         }).then(res=>res.json())
         .then(data => data)
+        e.target.reset();
     }
     return (
         <div>

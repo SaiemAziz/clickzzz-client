@@ -1,21 +1,58 @@
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/Auth";
 import logo from "../images/logo.jpg";
+import { toast } from "react-toastify";
+
 const Header = () => {
+  let {  logOut, setUser, setLoading, user } = useContext(AuthContext);
+  let navigate = useNavigate();
 
-  let navStyle = "text-white text-left px-4 bg-[#232426] "
+  let navStyle = "text-white text-left px-4 bg-[#232426] ";
 
-  let menu = <>
-    <div className="my-4"><NavLink className={({ isActive }) =>
-              isActive ? `${navStyle} text-amber-400` : navStyle
-            } to='/services'>Services</NavLink></div>
-    <div className="my-4"><NavLink className={({ isActive }) =>
-              isActive ? `${navStyle} text-amber-400` : navStyle
-            } to='/blogs'>Blogs</NavLink></div>
-    <div className="my-4"><NavLink className={({ isActive }) =>
-              isActive ? `${navStyle} text-amber-400` : navStyle
-            } to='/add-service'>Add Service</NavLink></div>
-  </>
+  let menu = (
+    <>
+      <div className="my-4">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${navStyle} text-amber-400` : navStyle
+          }
+          to="/services"
+        >
+          Services
+        </NavLink>
+      </div>
+      <div className="my-4">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${navStyle} text-amber-400` : navStyle
+          }
+          to="/blogs"
+        >
+          Blogs
+        </NavLink>
+      </div>
+      <div className="my-4">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${navStyle} text-amber-400` : navStyle
+          }
+          to="/add-service"
+        >
+          Add Service
+        </NavLink>
+      </div>
+    </>
+  );
+
+  let logoutClicked = () => {
+    logOut()
+      .then(() => setUser(null))
+      .catch(() => setUser(null));
+    toast.success("Successfully Logged Out");
+    navigate("/login");
+    setLoading(false);
+  };
 
   return (
     <div className="sticky top-0 z-50">
@@ -42,7 +79,9 @@ const Header = () => {
             <ul
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow text-white bg-[#232426] rounded-box w-52"
-            >{menu}</ul>
+            >
+              {menu}
+            </ul>
           </div>
 
           {/* left overs  */}
@@ -54,9 +93,20 @@ const Header = () => {
           <ul className="menu menu-horizontal p-0">{menu}</ul>
         </div>
         <div className="navbar-end">
-          <NavLink to="" className="btn btn-success btn-outline">
-            Get started
-          </NavLink>
+          {!user ? (
+            <NavLink to="/login" className="btn btn-success btn-outline">
+              Login
+            </NavLink>
+          ) : (
+            <div>
+              <p
+                onClick={logoutClicked}
+                className="btn btn-error"
+              >
+                Log Out
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>

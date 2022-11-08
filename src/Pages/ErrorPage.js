@@ -19,7 +19,7 @@ const ErrorPage = () => {
           className="absolute inset-0 transition-transform scale-110 bg-[#FF6A3D] translate-x-0 translate-y-1 group-hover:translate-y-0 group-hover:translate-x-0 group-hover:scale-100"
         ></span>
           <span className="relative block px-8 py-3 bg-[#1A2238] border border-current">
-            <router-link to="/">Go Home</router-link>
+            <router-link>Go Home</router-link>
           </span>
         </Link>
       </button>
