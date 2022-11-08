@@ -16,13 +16,13 @@ const Home = () => {
     return (
         <div>
             <Banner/>
-            <div className='w-fit mx-auto mt-5   p-5 text-amber-600'>
+            <div className='w-fit mx-auto mt-8   p-8 text-amber-600'>
                 <h1 className='text-3xl text-left'>Welcome to</h1>
-                    <h1 className='text-7xl italic my-5 font-bold text-warning-content'>CLICKZZZ</h1>
+                    <h1 className='text-7xl italic my-2 font-bold text-warning-content'>CLICKZZZ</h1>
                     <h1 className='text-3xl text-right'>Official Website</h1>
                
             </div>
-            <h1 className='text-4xl mb-5 font-medium border-t-4 pt-5'>Our Services</h1>
+            <h1 className='text-5xl font-medium border-t-4 p-5'>Our Services</h1>
             <div className='grid grid-cols-3 gap-5 mb-10 p-5'>
             {
                 services.map(s => <Service 

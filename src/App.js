@@ -5,6 +5,7 @@ import { useTitle } from './routes/useTitle';
 import Header from './shared/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './shared/Footer';
 function App() {
   useTitle('');
 
@@ -14,10 +15,10 @@ function App() {
     <div className="App" data-theme={theme ? 'luxury' : 'winter'}>
 
       {/* site shown  */}
-      <div className='max-w-7xl flex flex-col  min-h-screen mx-auto'>
+      <div className='max-w-7xl flex flex-col  min-h-screen mx-auto justify-between'>
         <Header/>
         <Outlet/>
-
+        <Footer/>
       </div>
 
       {/* toast  */}
