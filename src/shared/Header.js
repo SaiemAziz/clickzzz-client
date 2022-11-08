@@ -42,7 +42,7 @@ const Header = () => {
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0"></ul>
+          <ul className="menu menu-horizontal p-0">{menu}</ul>
         </div>
         <div className="navbar-end">
           <NavLink to="" className="btn btn-success btn-outline">

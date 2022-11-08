@@ -5,6 +5,7 @@ import Auth from '../context/Auth'
 import Home from "../Pages/Home"
 import Services from "../Pages/Services"
 import Blogs from "../Pages/Blogs"
+import Details from "../Pages/Details"
 
 export const routes = createBrowserRouter([
     {
@@ -26,6 +27,11 @@ export const routes = createBrowserRouter([
                 path: '/services',
                 loader: () => fetch("http://localhost:5000/services"),
                 element: <Services/>
+            },
+            {
+                path: '/details/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/service-details/${params.id}`),
+                element: <Details/>
             },
             {
                 path: '/blogs',
