@@ -2,9 +2,13 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/Auth";
+import { useTitle } from "../routes/useTitle";
 import SocialLogin from "../shared/SocialLogin";
 
 const Register = () => {
+
+    useTitle("Register")
+
   let { user, setLoading, createUser, updateUser, setUser, redirect } =
     useContext(AuthContext);
   let [show, setShow] = useState(false);
@@ -35,8 +39,9 @@ const Register = () => {
           .catch((err) =>
             toast.error(
               err.code.toUpperCase().replace("AUTH/", "").replaceAll("-", " ")
-            )
-          );
+              )
+              );
+        navigate(from, { replace: true });
       })
       .catch((err) =>
         toast.error(
@@ -45,7 +50,6 @@ const Register = () => {
       );
     setLoading(false);
     e.target.reset();
-    navigate(from, { replace: true });
   };
 
   return (

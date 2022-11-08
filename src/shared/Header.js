@@ -52,6 +52,7 @@ const Header = () => {
     toast.success("Successfully Logged Out");
     navigate("/login");
     setLoading(false);
+    localStorage.removeItem("token")
   };
 
   return (

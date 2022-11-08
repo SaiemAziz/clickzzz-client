@@ -3,8 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/Auth";
 import SocialLogin from "../shared/SocialLogin";
 import { toast } from "react-toastify";
+import { useTitle } from "../routes/useTitle";
+import { jwtFetch } from "../routes/jwtFetch";
 
 const LogIn = () => {
+  useTitle("Login");
   let { user, setLoading, logIn, updateUser, setUser, redirect } =
     useContext(AuthContext);
   let [show, setShow] = useState(false);
@@ -20,6 +23,8 @@ const LogIn = () => {
       .then((res) => {
         setUser(res.user);
         toast.success("Login Successful");
+        jwtFetch(res.user.email);
+        navigate(from, { replace: true });
       })
       .catch((err) =>
         toast.error(
@@ -28,7 +33,6 @@ const LogIn = () => {
       );
     setLoading(false);
     e.target.reset();
-    navigate(from, { replace: true });
   };
 
   return (
@@ -61,7 +65,7 @@ const LogIn = () => {
           />
         </div>
         <input className="btn btn-success my-5" type="submit" value="Login" />
-        <Link className="btn btn-accent my-5 btn-outline" to="/login">
+        <Link className="btn btn-accent my-5 btn-outline" to="/register">
           No Account?
         </Link>
       </form>

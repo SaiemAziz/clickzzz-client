@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { useTitle } from '../routes/useTitle';
 import Service from '../shared/Service';
 import Banner from './components/Banner';
 import logo from '../images/logo.jpg'
+import { AuthContext } from '../context/Auth';
 const Home = () => {
     useTitle('Home')
 
+    let {user} = useContext(AuthContext)
+    console.log(user)
     let returnedData = useLoaderData()
     
     let services = returnedData.data;
