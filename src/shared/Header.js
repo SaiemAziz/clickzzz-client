@@ -3,9 +3,18 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.jpg";
 const Header = () => {
 
+  let navStyle = "text-white text-left px-4 bg-[#232426] "
+
   let menu = <>
-    <div className="text-white text-left my-2 px-4 bg-[#232426]"><NavLink to='/services'>Services</NavLink></div>
-    <div className="text-white text-left my-2 px-4 bg-[#232426]"><NavLink to='/blogs'>Blogs</NavLink></div>
+    <div className="my-4"><NavLink className={({ isActive }) =>
+              isActive ? `${navStyle} text-amber-400` : navStyle
+            } to='/services'>Services</NavLink></div>
+    <div className="my-4"><NavLink className={({ isActive }) =>
+              isActive ? `${navStyle} text-amber-400` : navStyle
+            } to='/blogs'>Blogs</NavLink></div>
+    <div className="my-4"><NavLink className={({ isActive }) =>
+              isActive ? `${navStyle} text-amber-400` : navStyle
+            } to='/add-service'>Add Service</NavLink></div>
   </>
 
   return (
