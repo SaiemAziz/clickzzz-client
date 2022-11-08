@@ -10,6 +10,7 @@ import AddService from "../Pages/AddService"
 import Register from "../Pages/Register"
 import LogIn from "../Pages/LogIn"
 import Private from "../context/Private"
+import MyReivews from "../Pages/MyReivews"
 
 export const routes = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/add-service',
                 element: <Private><AddService/></Private>
+            },
+            {
+                path: '/my-reviews',
+                element: <Private><MyReivews/></Private>
             },
             {
                 path: '/register',

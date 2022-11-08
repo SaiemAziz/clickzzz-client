@@ -1,7 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { useTitle } from '../routes/useTitle';
 
 const Details = () => {
+
+    useTitle("Details")
 
     let {data} = useLoaderData()
     return (

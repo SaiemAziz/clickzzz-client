@@ -10,7 +10,7 @@ const Services = () => {
     let services = returnedData.data;
     return (
         <div className='px-5'>
-        <h1 className='text-4xl my-10 font-medium '>Our All Services : {services.length}</h1>
+        <h1 className='text-5xl my-10 font-medium '>Our All Services : {services.length}</h1>
         <div className='grid grid-cols-3 gap-5 mb-10'>
         {
             services.map(s => <Service 

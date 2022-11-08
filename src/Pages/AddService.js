@@ -36,7 +36,7 @@ const AddService = () => {
                 <input placeholder='Cost in $' required type="number" className="input input-primary" name='price'/>
                 <h1 className='text-2xl'>Description: </h1>
                 <textarea placeholder='Detailed Description'  required type="text" className="textarea textarea-primary" name='description'/>
-                <input className='btn btn-outline btn-accent col-span-2 my-5' type="submit" value="Add"/>
+                <input className='btn btn-accent col-span-2 my-5' type="submit" value="Add"/>
             </form>
         </div>
     );

@@ -6,10 +6,14 @@ import {
   BiSortDown,
 } from "react-icons/bi";
 import { BsMenuDown } from "react-icons/bs";
+import { useTitle } from "../routes/useTitle";
 
 const Blogs = () => {
+
+  useTitle("Blogs")
+
   return (
-    <div className="flex justify-center items-center flex-col py-10" data-theme = 'coffee'>
+    <div className="flex justify-center items-center flex-col py-10 my-10 rounded-[100px]" data-theme = 'coffee'>
       {/* title  */}
       <h1 className="text-4xl text-info font-bold italic mb-5">Blogs</h1>
 

@@ -15,6 +15,8 @@ const Home = () => {
 
     return (
         <div>
+
+            {/* header  */}
             <Banner/>
             <div className='w-fit mx-auto mt-8   p-8 text-amber-600'>
                 <h1 className='text-3xl text-left'>Welcome to</h1>
@@ -22,6 +24,8 @@ const Home = () => {
                     <h1 className='text-3xl text-right'>Official Website</h1>
                
             </div>
+
+            {/* service section  */}
             <h1 className='text-5xl font-medium border-t-4 p-5'>Our Services</h1>
             <div className='grid grid-cols-3 gap-5 mb-10 p-5'>
             {
@@ -30,7 +34,11 @@ const Home = () => {
                     service={s}/>)
             }
             </div>
-            <Link to='/services' className='link link-primary font-bold text-2xl'>See all</Link>
+            <Link to='/services' className='block link link-primary font-bold text-2xl my-10 border-b-4 pb-10'>See all</Link>
+            
+            {/* extra 2 sections  */}
+            <div></div>
+            <div></div>
         </div>
     );
 };

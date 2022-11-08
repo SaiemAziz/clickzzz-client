@@ -1,7 +1,10 @@
 import React from "react";
 import {useRouteError, Link} from 'react-router-dom'
+import { useTitle } from "../routes/useTitle";
 
 const ErrorPage = () => {
+
+  useTitle("ErrorPage");
 
   let err = useRouteError()
 
@@ -15,11 +18,11 @@ const ErrorPage = () => {
 
       {/* go home link  */}
       <button className="mt-5">
-        <Link to='/' className="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none "><span
+        <Link to='/home' className="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none "><span
           className="absolute inset-0 transition-transform scale-110 bg-[#FF6A3D] translate-x-0 translate-y-1 group-hover:translate-y-0 group-hover:translate-x-0 group-hover:scale-100"
         ></span>
           <span className="relative block px-8 py-3 bg-[#1A2238] border border-current">
-            <router-link>Go Home</router-link>
+            Go Home
           </span>
         </Link>
       </button>

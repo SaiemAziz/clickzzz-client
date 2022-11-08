@@ -33,7 +33,8 @@ const Header = () => {
           Blogs
         </NavLink>
       </div>
-      <div className="my-4">
+      { user &&
+        <div className="my-4">
         <NavLink
           className={({ isActive }) =>
             isActive ? `${navStyle} text-amber-400` : navStyle
@@ -43,6 +44,19 @@ const Header = () => {
           Add Service
         </NavLink>
       </div>
+      }
+      { user &&
+        <div className="my-4">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? `${navStyle} text-amber-400` : navStyle
+          }
+          to="/my-reviews"
+        >
+          My Reviews
+        </NavLink>
+      </div>
+      }
     </>
   );
 
@@ -101,7 +115,8 @@ const Header = () => {
               Login
             </NavLink>
           ) : (
-            <div>
+            <div className="flex items-center tooltip tooltip-bottom tooltip-info" data-tip={user?.displayName}>
+              <img className="w-[40px] h-[40px] rounded-full mx-5 " src={user?.photoURL} alt="" />
               <p
                 onClick={logoutClicked}
                 className="btn btn-error"
