@@ -12,6 +12,7 @@ const SocialLogin = () => {
     let from = redirect || '/'
 
 
+    // log in by google 
   let gglLoginClicked = () => {
     googleLogin()
       .then((res) => {
@@ -19,7 +20,6 @@ const SocialLogin = () => {
         toast.success("Successfully logged in");
         
         jwtFetch(res.user.email)
-        console.log(from);
       })
       .catch((err) =>
         toast.error(
@@ -29,6 +29,8 @@ const SocialLogin = () => {
     setLoading(false);
   };
 
+
+// log in by git hub 
   let gitLoginClicked = () => {
     githubLogin()
       .then((res) => {

@@ -24,23 +24,26 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:5000/services?limit=3"),
+        loader: () =>
+          fetch("https://service-review-three.vercel.app/services?limit=3"),
         element: <Home />,
       },
       {
         path: "/home",
-        loader: () => fetch("http://localhost:5000/services?limit=3"),
+        loader: () =>
+          fetch("https://service-review-three.vercel.app/services?limit=3"),
         element: <Home />,
       },
       {
         path: "/services",
-        loader: () => fetch("http://localhost:5000/services"),
         element: <Services />,
       },
       {
-        path: "/details/:id",
+        path: "/services/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/service-details/${params.id}`),
+          fetch(
+            `https://service-review-three.vercel.app/service-details/${params.id}`
+          ),
         element: <Details />,
       },
       {

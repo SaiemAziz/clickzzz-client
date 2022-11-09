@@ -18,11 +18,11 @@ const ReviewRow = ({r, idx, deleteClicked, updateClicked}) => {
     return (
         <>
             {/* every row  */}
-            <tr>
+            <tr className='hover'>
                 <th>{idx+1}</th>
                 <td>{r.service_name}</td>
-                <td>{date.getDate()}/{date.getMonth()}/{date.getFullYear()}</td>
-                <td>{date.getHours()}:{date.getMinutes()}:{date.getSeconds()}</td>
+                <td>{date.getDate()}/{date.getMonth()+1}/{date.getFullYear()}</td>
+                <td>{date.getHours() % 12 !== 0 ? date.getHours() % 12 : 12}:{date.getMinutes()} {date.getHours > 11 ? 'PM' : 'AM'}</td>
                 <td>{r?.details?.length > 30 ?
                     `${r?.details?.slice(0,30)}...` :
                     r?.details?.slice(0,30) 

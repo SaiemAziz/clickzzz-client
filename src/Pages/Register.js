@@ -74,15 +74,18 @@ const Register = () => {
           required
           type="text"
           className="input input-primary"
+          placeholder="Full Name"
           name="name"
         />
         <h1 className="text-2xl">Image URL: </h1>
-        <input type="text" className="input input-primary" name="img" />
+        <input type="text" className="input input-primary"
+        placeholder="Photo Link" name="img" />
         <h1 className="text-2xl">Email: </h1>
         <input
           required
           type="email"
           className="input input-primary"
+          placeholder="Email"
           name="email"
         />
         <h1 className="text-2xl">Password: </h1>
@@ -90,6 +93,7 @@ const Register = () => {
           required
           type={show ? "text" : "password"}
           className="input input-primary"
+          placeholder="Password"
           name="password"
         />
         <h1 className="text-2xl">Confirm: </h1>
@@ -97,6 +101,7 @@ const Register = () => {
           required
           type={show ? "text" : "password"}
           className="input input-primary"
+          placeholder="Confirm Password"
           name="confirm"
         />
         <div className="col-span-2 w-fit ml-auto flex">

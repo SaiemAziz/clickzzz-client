@@ -38,16 +38,16 @@ const Banner = () => {
         className="mySwiper relative top-40 w-full tooltip tooltip-warning"
        data-tip="Swipe Me">
         <SwiperSlide>
-          <img className="w-full" alt="" src={img4} />
+          <img className="w-full" alt="" src={`https://i.ibb.co/n895DtC/fire.jpg`} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full" alt="" src={img2} />
+          <img className="w-full" alt="" src={`https://i.ibb.co/t2tV8cB/flower.jpg`} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full" alt="" src={img1} />
+          <img className="w-full" alt="" src={`https://i.ibb.co/TrbWS98/beach.jpg`} />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full" alt="" src={img3} />
+          <img className="w-full" alt="" src={`https://i.ibb.co/nbwpFnJ/ship.jpg`} />
         </SwiperSlide>
       </Swiper>
     </div>

@@ -8,6 +8,7 @@ const Header = () => {
   let {  logOut, setUser, setLoading, user, setRedirect } = useContext(AuthContext);
   let navigate = useNavigate();
   let location = useLocation()
+  let blankPhoto = "https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_960_720.png"
 
   let navStyle = "text-white text-left px-4 bg-[#232426] ";
 
@@ -114,8 +115,8 @@ const Header = () => {
             </NavLink>
           ) : (
             <div className="flex items-center " >
-              <div className="tooltip tooltip-bottom tooltip-secondary" data-tip={user?.displayName}>
-                <img className="w-[40px] h-[40px] rounded-full mx-5 " src={user?.photoURL} alt="" />
+              <div className="tooltip tooltip-bottom tooltip-secondary" data-tip={user?.displayName || "No Name"}>
+                <img className="w-[40px] h-[40px] rounded-full mx-5 " src={user?.photoURL ? user?.photoURL : blankPhoto} alt="" />
               </div>
                 
               <p

@@ -6,6 +6,7 @@ import Header from './shared/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './shared/Footer';
+import 'react-photo-view/dist/react-photo-view.css';
 function App() {
   useTitle('');
 

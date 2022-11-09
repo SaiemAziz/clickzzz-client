@@ -56,6 +56,7 @@ const LogIn = () => {
           type="email"
           className="input input-primary"
           name="email"
+          placeholder="Email"
         />
         <h1 className="text-2xl">Password: </h1>
         <input
@@ -63,6 +64,7 @@ const LogIn = () => {
           type={show ? "text" : "password"}
           className="input input-primary"
           name="password"
+          placeholder="Password"
         />
         <div className="col-span-2 w-fit ml-auto flex">
           <p className="mr-5 text-warning-content text-xl">Show Password</p>
