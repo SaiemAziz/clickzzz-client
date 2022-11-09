@@ -65,9 +65,7 @@ const Header = () => {
       .then(() => setUser(null))
       .catch(() => setUser(null));
     toast.success("Successfully Logged Out");
-    navigate("/login");
     setLoading(false);
-    setRedirect(location.pathname)
     localStorage.removeItem("token")
   };
 
