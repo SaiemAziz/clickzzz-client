@@ -37,6 +37,7 @@ const Details = () => {
             email: user.email,
             displayName : user.displayName,
             service_id: data._id,
+            service_name: data.title,
             time: time,
         }
         e.target.reset()
@@ -87,7 +88,9 @@ const Details = () => {
         {
             user && 
             <form onSubmit={reviewForm} className='flex items-center justify-center mx-auto my-10'>
-                <img src={user?.photoURL} className="w-[60px] h-[60px] rounded-full mr-5" alt="" />
+                <div className='tooltip tooltip-secondary px-5' data-tip={user.displayName}>
+                    <img src={user?.photoURL} className="w-[60px] h-[60px] rounded-full" alt="" />
+                </div>
                 <textarea name="review" className='h-[140px] textarea textarea-primary w-1/2' placeholder='Type minimum 20 characters' onChange={checkReview}/>
                 <input className={`btn ml-5 btn-info`} type="submit" value="Submit Review" disabled={!check} />
             </form>

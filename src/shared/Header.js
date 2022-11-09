@@ -115,8 +115,11 @@ const Header = () => {
               Login
             </NavLink>
           ) : (
-            <div className="flex items-center tooltip tooltip-bottom tooltip-info" data-tip={user?.displayName}>
-              <img className="w-[40px] h-[40px] rounded-full mx-5 " src={user?.photoURL} alt="" />
+            <div className="flex items-center " >
+              <div className="tooltip tooltip-bottom tooltip-secondary" data-tip={user?.displayName}>
+                <img className="w-[40px] h-[40px] rounded-full mx-5 " src={user?.photoURL} alt="" />
+              </div>
+                
               <p
                 onClick={logoutClicked}
                 className="btn btn-error"

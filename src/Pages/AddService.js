@@ -1,9 +1,14 @@
+import { info } from 'daisyui/src/colors/colorNames';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useTitle } from '../routes/useTitle';
 
 const AddService = () => {
 
     useTitle('Add Service');
+
+    let navigate = useNavigate()
 
     let formChecked = (e) => {
         e.preventDefault()
@@ -21,7 +26,11 @@ const AddService = () => {
             },
             body: JSON.stringify(service)
         }).then(res=>res.json())
-        .then(data => data)
+        .then(data => {
+            if(data.status === 'success')
+                toast.success("Successfully added a new service")
+            navigate('services')
+        })
         e.target.reset();
     }
     return (
