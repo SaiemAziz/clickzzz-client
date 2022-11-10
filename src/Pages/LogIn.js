@@ -21,6 +21,7 @@ const LogIn = () => {
     }
   },[user])
 
+  // form of user to log in
   let formChecked = (e) => {
     e.preventDefault();
     let email = e.target.email.value;

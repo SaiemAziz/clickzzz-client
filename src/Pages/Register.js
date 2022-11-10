@@ -23,6 +23,7 @@ const Register = () => {
     }
   },[user])
 
+  // input form for new user 
   let formChecked = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
@@ -38,6 +39,8 @@ const Register = () => {
       return;
     }
 
+
+    // create new account
     createUser(email, password)
       .then((res) => {
         setUser(res.user);

@@ -15,6 +15,7 @@ const Details = () => {
   let { data } = useLoaderData();
   let blankPhoto = "https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_960_720.png";
 
+  // fetch details of service
   useEffect(() => {
     fetch(
       `https://service-review-three.vercel.app/service-reviews?id=${data._id}`
@@ -25,6 +26,7 @@ const Details = () => {
 
   if (user) setRedirect(null);
 
+  // log in from review section
   let clickedLogin = () => {
     setRedirect(location.pathname);
     navigate("/login");

@@ -9,6 +9,7 @@ const AddService = () => {
 
   let navigate = useNavigate();
 
+  // form of new service
   let formChecked = (e) => {
     e.preventDefault();
     let service = {
@@ -33,6 +34,8 @@ const AddService = () => {
       });
     e.target.reset();
   };
+
+  
   return (
     <div>
       <h1 className="my-10 text-6xl">Please Add A new Service</h1>

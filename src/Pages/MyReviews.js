@@ -11,6 +11,7 @@ const MyReviews = () => {
   let [reviews, setReviews] = useState([]);
   let { user } = useContext(AuthContext);
 
+  // load reviews of a logged in user
   useEffect(() => {
     fetch(
       `https://service-review-three.vercel.app/my-reviews?email=${user?.email}`,

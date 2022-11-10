@@ -12,6 +12,8 @@ const ReviewCards = ({reviews}) => {
     );
 };
 
+
+// component for single review
 const SingleReview = ({r}) => {
     let blankPhoto = "https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_960_720.png";
     let time = new Date(r.time)

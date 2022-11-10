@@ -12,6 +12,8 @@ const Header = () => {
 
   let navStyle = "text-white text-left px-4 bg-[#232426] ";
 
+
+  // menu list items
   let menu = (
     <>
       <div className="my-4">
@@ -61,6 +63,7 @@ const Header = () => {
     </>
   );
 
+  // log out user
   let logoutClicked = () => {
     logOut()
       .then(() => setUser(null))
