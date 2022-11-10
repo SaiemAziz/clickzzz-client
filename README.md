@@ -1,5 +1,3 @@
-## client repo : https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-SaiemAziz
-
 # Project Title : Clickzzz
 Live Link : https://service-review-827b3.firebaseapp.com/
 

@@ -27,7 +27,7 @@ const Home = () => {
 
             {/* service section  */}
             <h1 className='text-5xl font-medium border-t-4 p-5'>Our Services</h1>
-            <div className='grid grid-cols-3 gap-5 mb-10 p-5'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-10 p-5'>
             {
                 services.map(s => <Service 
                     key={s._id}

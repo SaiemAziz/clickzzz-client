@@ -13,8 +13,7 @@ const Details = () => {
   let navigate = useNavigate();
   let location = useLocation();
   let { data } = useLoaderData();
-  let blankPhoto =
-    "https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_960_720.png";
+  let blankPhoto = "https://cdn.pixabay.com/photo/2021/07/02/04/48/user-6380868_960_720.png";
 
   useEffect(() => {
     fetch(
@@ -72,14 +71,15 @@ const Details = () => {
       </h1>
 
       {/* details of a service  */}
-      <div className="shadow-2xl p-5 grid grid-cols-3 gap-5 m-5">
+      <div className="  p-10 grid grid-cols-1 md:grid-cols-3 gap-5 my-5 border-b-4">
       <PhotoProvider>
             <PhotoView src={data.img}>
-                <img className='rounded-xl' src={data.img} alt="" />
+                <img className='rounded-xl my-auto' src={data.img} alt="" />
             </PhotoView>
             </PhotoProvider>
         <div className="card col-span-2 flex flex-col justify-between">
-          <h1 className="text-justify text-3xl p-10">
+          <h1 className="font-bold text-right text-amber-600">Name: {data.title}</h1>
+          <h1 className="text-justify text-xl sm:text-2xl lg:text-3xl p-10">
             <span className="font-bold">Description: </span>
             {data.description}
           </h1>
@@ -90,11 +90,11 @@ const Details = () => {
       </div>
 
       {/* all reviews */}
-      <div className="my-10 px-5 text-3xl flex justify-between items-center">
+      <div className="mt-10 px-5 text-3xl flex flex-col md:flex-row justify-between items-center">
         <h1 className=" text-left">All Reviews regarding this service:</h1>
         {!user && (
           <div>
-            <h1 className="text-2xl">
+            <h1 className="text-2xl my-5">
               Please{" "}
               <span
                 className="btn btn-primary btn-sm btn-outline"
@@ -110,10 +110,10 @@ const Details = () => {
       {user && (
         <form
           onSubmit={reviewForm}
-          className="flex items-center justify-center mx-auto my-10"
+          className="flex md:flex-row flex-col items-center justify-center mx-auto my-10"
         >
           <div
-            className="tooltip tooltip-secondary px-5"
+            className="tooltip tooltip-secondary m-5"
             data-tip={user.displayName || "No Name"}
           >
             <img
@@ -128,7 +128,7 @@ const Details = () => {
             placeholder="Please enter your thought about the service."
           />
           <input
-            className={`btn ml-5 btn-info`}
+            className={`btn m-5 btn-info`}
             type="submit"
             value="Submit Review"
             disabled={!check}
