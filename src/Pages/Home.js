@@ -43,11 +43,15 @@ const Home = () => {
                     <img className='w-full rounded-2xl' src="https://scontent.fcgp7-1.fna.fbcdn.net/v/t1.6435-9/95589264_922217678200403_6696236305208049664_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHcQSTQgo0QYvDX5vmBEGkvbPZA8krVRWJs9kDyStVFYp5V1TsYgW6MeglqOpb8s_3SxxknyZPLcERH15LnOs-J&_nc_ohc=9r661w85kkgAX8bpJOK&tn=2KGHVoq7SJ_6Yq9s&_nc_ht=scontent.fcgp7-1.fna&oh=00_AfDJlBZtzUCXD2bLhe2OspIYKTfJ2-t0dpyHvaUS2SsOQw&oe=63945250" alt="" />
                 </div>
                 <div className='flex flex-col justify-center px-10 text-left'>
-                    <h1 className='text-5xl font-bold text-amber-500 border-b-4 border-black w-fit pb-2 mb-2'>About Me</h1>
+                    <h1 className='text-5xl font-bold text-green-600 border-b-4 border-black w-fit pb-2 mb-2'>About Me</h1>
                     <p><span className='font-bold'>Name:</span> Sayem Aziz Chowdhury</p>
                     <p><span className='font-bold'>Address:</span> Bhatiary, Chittagong, Bangladesh</p>
                     <p className='text-justify'><span className='font-bold '>Description:</span> I am a professional photographer taking photos since 2010. I am currently studing CSE at CU. Photography is my hobby, my passion. And most importantly, I cares for my clients satisfaction.</p>
-
+                    <h1 className='text-2xl font-bold text-green-600 border-b-4 border-black w-fit pb-2 my-2 ml-auto'>Contact Me</h1>
+                    <div className='flex justify-end'>
+                    <a target={'_blank'} rel="noreferrer" href='https://www.facebook.com/sayem.azizchowdhury.3/' className="btn mr-5 btn-primary">Facebook</a>
+                    <a target={'_blank'} rel="noreferrer" href='https://www.linkedin.com/in/md-abu-saiem-aziz-chowdhury-9b7217247/' className="btn btn-info">Linkedin</a>
+                    </div>
                 </div>
             </div>
 
