@@ -4,7 +4,7 @@ import "swiper/css/effect-cube";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCube, Pagination, EffectCoverflow } from "swiper";
+import { EffectCube, Pagination, EffectCoverflow, Autoplay } from "swiper";
 import img1 from "../../images/beach.jpg";
 import img2 from "../../images/flower.jpg";
 import img3 from "../../images/ship.jpg";
@@ -17,6 +17,10 @@ const Banner = () => {
         effect={"coverflow"}
         grabCursor={true}
         loop={true}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
         centeredSlides={true}
         slidesPerView={"2"}
         // cubeEffect={{
@@ -34,7 +38,7 @@ const Banner = () => {
         pagination={{
           type: "fraction",
         }}
-        modules={[EffectCoverflow]}
+        modules={[EffectCoverflow, Autoplay]}
         className="mySwiper relative top-40 w-full tooltip tooltip-warning"
        data-tip="Swipe Me">
         <SwiperSlide>
